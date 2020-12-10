@@ -61,7 +61,7 @@ Menu Menu_Snowball()
 	Menu menu = new Menu(Menu_Callback);
 	menu.SetTitle("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n   ★ Kar Topu - Ayarlar ★\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 	
-	if (Oyunaktifmi)
+	if (!Oyunaktifmi)
 		menu.AddItem("0", "→ Başlat");
 	else
 		menu.AddItem("1", "→ Durdur");
@@ -159,8 +159,6 @@ public int Menu_Callback(Menu menu, MenuAction action, int client, int position)
 		}
 		else if (strcmp(Item, "5") == 0)
 		{
-			delete menu;
-			return;
 		}
 	}
 	else if (action == MenuAction_End)

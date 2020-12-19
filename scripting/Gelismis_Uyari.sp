@@ -1,5 +1,4 @@
 #include <sourcemod>
-#include <pmstocks>
 #include <clientprefs>
 #include <basecomm>
 
@@ -87,7 +86,7 @@ public Action Command_Uyari(int client, int args)
 	if (StrEqual(buffer, "0", false))
 	{
 		Uyari.Set(target, "1");
-		if (uyari_1ceza.BoolValue)
+		if (!uyari_1ceza.BoolValue)
 		{
 			PrintToChat(target, "[SM] \x04%d Dakika \x01GAG & Mute yedin!", uyari_1sure.IntValue);
 			BaseComm_SetClientGag(target, true);
@@ -111,7 +110,7 @@ public Action Command_Uyari(int client, int args)
 	else if (StrEqual(buffer, "1", false))
 	{
 		Uyari.Set(target, "2");
-		if (uyari_2ceza.BoolValue)
+		if (!uyari_2ceza.BoolValue)
 		{
 			PrintToChat(target, "[SM] \x04%d Dakika \x01GAG & Mute yedin!", uyari_2sure.IntValue);
 			BaseComm_SetClientGag(target, true);
@@ -137,7 +136,7 @@ public Action Command_Uyari(int client, int args)
 		Uyari.Set(target, "0");
 		char Sebep[1024];
 		uyari_3sebep.GetString(Sebep, sizeof(Sebep));
-		if (uyari_3ceza.BoolValue)
+		if (!uyari_3ceza.BoolValue)
 		{
 			BanClient(target, uyari_3sure.IntValue, BANFLAG_AUTO, Sebep, Sebep);
 			return Plugin_Handled;
